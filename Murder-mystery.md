@@ -1,6 +1,7 @@
 Code 1
 
 SELECT *
+
 FROM crime_scene_report where type=&#39;murder&#39; and city=&#39;SQL City&#39; and
 date=20180115
 
@@ -13,10 +14,14 @@ Output
 
 
 Code 2
+
 SELECT *
+
 FROM person where address_street_name=&#39;Northwestern Dr&#39;ORDER BY
 address_number DESC
+
 limit 1
+
 output
 | id    | name          | license_id | address_number | address_street_name | ssn      |
 |-------|---------------|------------|----------------|---------------------|----------|
@@ -24,37 +29,53 @@ output
 
 
 Code 3
+
 SELECT *
+
 FROM person where name like &#39;%Annabel%&#39; and
 address_street_name=&#39;Franklin Ave&#39;
+
 Output
+
 | id    | name           | license_id | address_number | address_street_name | ssn      |
 |-------|----------------|------------|----------------|---------------------|----------|
 | 16371 | Annabel Miller | 49073      | 103            | Franklin Ave        | 3187743  |
 
 
 Code 4
+
 SELECT *
+
 FROM interview where person_id=14887
+
 Output
+
 | person_id | transcript |
 |-----------|------------|
 | 4487      | I heard a gunshot and then saw a man run out. He had a 'Get Fit Now Gym' bag. The membership number on the bag started with '48Z'. Only gold members have those bags. The man got into a car with a plate that included 'H42W'. |
 
 
 Code 5
+
 SELECT *
+
 FROM interview where person_id=16371
+
 Output
+
 | person_id | transcript |
 |-----------|------------|
 | 4487      | I heard a gunshot and then saw a man run out. He had a "Get Fit Now Gym" bag. The membership number on the bag started with "48Z". Only gold members have those bags. The man got into a car with a plate that included "H42W". |
 
 
 Code 6
+
 SELECT *
+
 FROM get_fit_now_member
+
 where person_id=16371
+
 Output
 | Id    | person_id | name           | membership_start_date | membership_status |
 |-------|-----------|----------------|-----------------------|-------------------|
@@ -62,9 +83,13 @@ Output
 
 
 Code 7
+
 SELECT *
+
 FROM get_fit_now_check_in
+
 where check_in_date=20180109 and membership_id like&#39;%48Z%&#39;
+
 Output
 | membership_id | check_in_date | check_in_time | check_out_time |
 |---------------|---------------|---------------|----------------|
@@ -73,9 +98,13 @@ Output
 
 
 Code 8
+
 SELECT *
+
 FROM get_fit_now_member
+
 WHERE id = &#39;48Z7A&#39; OR id = &#39;48Z55&#39;;
+
 Output
 | id    | person_id | name          | membership_start_date | membership_status |
 |-------|-----------|---------------|-----------------------|-------------------|
@@ -84,9 +113,13 @@ Output
 
 
 Code 9
+
 SELECT *
+
 FROM drivers_license
+
 where plate_number like &#39;%H42W%&#39;
+
 output
 | id     | age | height | eye_color | hair_color | gender | plate_number | car_make  | car_model |
 |--------|-----|--------|-----------|------------|--------|--------------|-----------|-----------|
@@ -96,9 +129,13 @@ output
 
 
 Code 10
+
 SELECT *
+
 FROM person
+
 where license_id=423327 or license_id=664760
+
 output
 | id    | name          | license_id | address_number | address_street_name  | ssn       |
 |-------|---------------|------------|----------------|----------------------|-----------|
@@ -107,10 +144,14 @@ output
 
 
 Code 11
+
 SELECT *
+
 FROM person
+
 WHERE (license_id=423327 OR license_id=664760) AND (id=67318 OR
 id=28819);
+
 output
 | Id    | Name   | License ID | Address Number | Address Street Name      | SSN       |
 |-------|--------|------------|----------------|--------------------------|-----------|
@@ -124,7 +165,9 @@ output
 
 
 Code 12
+
 SELECT * FROM interview WHERE person_id = &quot;67318&quot;;
+
 output
 | person_id | transcript |
 |-----------|------------|
@@ -132,9 +175,11 @@ output
 
 
 Code 13
+
 SELECT * FROM drivers_license WHERE gender = &quot;female&quot; AND hair_color =
 &quot;red&quot; AND height BETWEEN 65 AND 67 AND car_make = &quot;Tesla&quot; AND car_model =
 &quot;Model S&quot;;
+
 output
 | Id     | Age | Height | Eye Color | Hair Color | Gender | Plate Number | Car Make | Car Model |
 |--------|-----|--------|-----------|------------|--------|--------------|----------|-----------|
@@ -144,9 +189,13 @@ output
 
 
 Code 14
+
 SELECT *
+
 FROM person
+
 WHERE license_id IN (&quot;202298&quot;, &quot;291182&quot;, &quot;918773&quot;);
+
 output
 | id    | name           | license_id | address_number | address_street_name | ssn        |
 |-------|----------------|------------|----------------|---------------------|------------|
@@ -156,9 +205,13 @@ output
 
 
 Code 15
+
 SELECT *
+
 FROM facebook_event_checkin
+
 WHERE person_id IN (&quot;78881&quot;, &quot;90700&quot;, &quot;99716&quot;) GROUP BY person_id, event_name;
+
 output
 | person_id | event_id | event_name           | date     |
 |-----------|----------|----------------------|----------|
@@ -166,10 +219,15 @@ output
 
 
 FINAL ANSWER FOR MURDER
+
 SELECT *
+
 FROM person
+
 WHERE id=99716
+
 output
+
 | id    | name           | license_id | address_number | address_street_name | ssn         |
 |-------|----------------|------------|----------------|---------------------|-------------|
 | 89716 | Miranda Priestly | 202728    | 1083           | Colerian Ave.       | 987/65/8888 |
