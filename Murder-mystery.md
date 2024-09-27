@@ -1,9 +1,7 @@
 Code 1
 
 SELECT *
-
 FROM crime_scene_report where type=&#39;murder&#39; and city=&#39;SQL City&#39; and
-
 date=20180115
 
 Output
